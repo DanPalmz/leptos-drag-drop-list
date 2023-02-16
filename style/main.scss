@@ -1,0 +1,42 @@
+body {
+	font-family: sans-serif;
+	text-align: center;
+	user-select: none;
+}
+
+[draggable="true"] {
+	user-select: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+  }
+
+.dragging {
+	opacity: 0.5;
+	background-color: purple;
+}
+
+  ul.moveable {
+	list-style: none;
+	margin: 0px;
+  
+	li {
+	  list-style-image: none;
+	  margin: 10px;
+	  border: 1px solid #ccc;
+	  padding: 4px;
+	  border-radius: 4px;
+	  color: #666;
+	  cursor: move;
+	  width: 100%;
+	  background-color: cadetblue;
+  
+	//   &:hover {
+	// 	//background-color: #eee;
+	//   }
+
+	}
+	.over {
+		border: 3px dotted #666;
+	}
+  }
