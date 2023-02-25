@@ -62,3 +62,16 @@ pub enum DragState {
     DraggedOver,
     Dragging,
 }
+
+#[derive(Debug, Clone, PartialEq)]
+pub enum DragListState {
+    Normal,
+    Dragging {
+        item_id: i32,
+        target_id: Option<i32>,
+    },
+    Dropped {
+        item_id: i32,
+        target_id: i32,
+    },
+}

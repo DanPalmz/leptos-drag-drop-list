@@ -30,6 +30,7 @@ ssr = ["dep:actix-files", "dep:actix-web", "dep:leptos_actix", "leptos/ssr", "le
 [dependencies.web-sys]
 version = "0.3.61"
 features = [
+  "DragEvent",
   "DataTransfer",
 ]
 
