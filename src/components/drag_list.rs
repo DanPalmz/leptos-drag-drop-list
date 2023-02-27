@@ -1,9 +1,7 @@
 use std::fmt::Debug;
-use std::thread::current;
 
 use super::super::types::*;
 use super::drag_item::*;
-use leptos::ev::drag;
 use leptos::*;
 
 #[derive(Copy, Clone)]
@@ -30,14 +28,14 @@ where
     provide_context(cx, DragDropContext(set_drag_drop));
 
     let move_item = move |from_id: i32, to_id: i32| {
-        log!("Moving item from {} to {}", from_id, to_id);
+        // log!!("Moving item from {} to {}", from_id, to_id);
 
         let il = itemslist.get().clone();
 
         let from_index = il.iter().position(|i| i.get_id() == from_id).unwrap();
         let to_index = il.iter().position(|i| i.get_id() == to_id).unwrap();
 
-        log!("Found at index (from) {} (to) {}", from_index, to_index);
+        // log!("Found at index (from) {} (to) {}", from_index, to_index);
 
         set_itemslist.update(|mut_il| {
             let removed_item = mut_il.remove(from_index);
@@ -45,10 +43,10 @@ where
         });
     };
 
-    let handle_drag_drop = create_memo(cx, move |_| {
+    let _handle_drag_drop = create_memo(cx, move |_| {
         let drag_drop_status = drag_drop.get();
 
-        match (drag_drop_status) {
+        match drag_drop_status {
             None => false,
             Some((from, to)) => {
                 if from != to {
@@ -85,8 +83,7 @@ where
 
             let len = il.len();
 
-            for i in 0..len {
-                log!("{}", i);
+            for _i in 0..len {
                 if let Some(p) = il.pop() {
                     v.push(p);
                 }

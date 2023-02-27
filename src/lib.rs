@@ -2,7 +2,6 @@ pub mod app;
 use cfg_if::cfg_if;
 
 pub mod components;
-// use components::drag_list::DragList;
 pub mod types;
 
 cfg_if! {

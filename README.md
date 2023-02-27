@@ -1,40 +1,20 @@
-<picture>
-    <source srcset="https://raw.githubusercontent.com/leptos-rs/leptos/main/docs/logos/Leptos_logo_Solid_White.svg" media="(prefers-color-scheme: dark)">
-    <img src="https://raw.githubusercontent.com/leptos-rs/leptos/main/docs/logos/Leptos_logo_RGB.svg" alt="Leptos Logo">
-</picture>
+# Leptos Draggable List Test
 
-# Leptos Starter Template
+This is a test of creating a Drag and Drop capable list using [Leptos](https://github.com/leptos-rs/leptos) web framework in Rust.
 
-This is a template for use with the [Leptos](https://github.com/leptos-rs/leptos) web framework and the [cargo-leptos](https://github.com/akesson/cargo-leptos) tool.
+DragList takes a `Vec<T> : Listable` of items to list.  The Listable trait just needs to implement get_id and get_name.
 
-## Creating your template repo
+### Signals are used:
+* DragList contains the itemslist - and provides setters for 3 signals to subitems via provide_context.
+* DragItem
+	* Contains two internal signals for item state.  is_dragging and is_hoverred_over.  These drive the UI changes (adding classes to display hover & drag states).
+	* Uses the 3 setters available from context to pass their item_id back to the DragList - and fire if a drop occurs.
+		* JS Event.DataTransfer is used to provide an item_id and fire the drop event.
+  
 
-If you don't have `cargo-leptos` installed you can install it with
-
-`cargo install cargo-leptos`
-
-Then run
-
-`cargo leptos new --git leptos-rs/start`
-
-to generate a new project template.
-
-`cd {projectname}`
-
-to go to your newly created project.
-
-Of course you should explore around the project structure, but the best place to start with your application code is in `src/app.rs`.
-
-## Running your project
-
+## Testing the project
 `cargo leptos watch`
+http://127.0.0.1:3000
 
-## Installing Additional Tools
-
-By default, `cargo-leptos` uses `nightly` Rust, `cargo-generate`, and `sass`. If you run into any trouble, you may need to install one or more of these tools.
-
-1. `rustup toolchain install nightly --allow-downgrade` - make sure you have Rust nightly
-2. `rustup default nightly` - setup nightly as default, or you can use rust-toolchain file later on
-3. `rustup target add wasm32-unknown-unknown` - add the ability to compile Rust to WebAssembly
-4. `cargo install cargo-generate` - install `cargo-generate` binary (should be installed automatically in future)
-5. `npm install -g sass` - install `dart-sass` (should be optional in future)
+### Author's Note
+This is my first rust and webassembly project.  The code is free to copy and use but I have no idea how "rusty" it is.  It is just a proof of concept/learning experience before I start a _real_ project. 

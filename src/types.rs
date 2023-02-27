@@ -38,15 +38,6 @@ where
     }
 }
 
-// impl Listable for &ListItem {
-//     fn get_id(&self) -> String {
-//         self.id.to_string()
-//     }
-//     fn get_name(&self) -> String {
-//         self.name.to_string()
-//     }
-// }
-
 impl Listable for ListItem {
     fn get_id(&self) -> i32 {
         self.id
@@ -56,22 +47,9 @@ impl Listable for ListItem {
     }
 }
 
-#[derive(Debug, Clone)]
-pub enum DragState {
-    Normal,
-    DraggedOver,
-    Dragging,
-}
-
-#[derive(Debug, Clone, PartialEq)]
-pub enum DragListState {
-    Normal,
-    Dragging {
-        item_id: i32,
-        target_id: Option<i32>,
-    },
-    Dropped {
-        item_id: i32,
-        target_id: i32,
-    },
-}
+// #[derive(Debug, Clone)]
+// pub enum DragState {
+//     Normal,
+//     DraggedOver,
+//     Dragging,
+// }

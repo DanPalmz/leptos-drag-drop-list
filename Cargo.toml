@@ -1,5 +1,5 @@
 [package]
-name = "leptos_start"
+name = "drag_drop_list_for_leptos"
 version = "0.1.0"
 edition = "2021"
 
@@ -31,7 +31,7 @@ ssr = ["dep:actix-files", "dep:actix-web", "dep:leptos_actix", "leptos/ssr", "le
 version = "0.3.61"
 features = [
   "DragEvent",
-  "DataTransfer",
+  "DataTransfer"
 ]
 
 [package.metadata.leptos]
